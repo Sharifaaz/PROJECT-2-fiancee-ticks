@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express Auth</title>
+	<title>BRYD TICKS</title>
+	
 </head>
-<body>
-    <nav>
-        <ul>
-            <% if(user){ %>
-                <li><a href="/users/profile">Profile</a></li>
-                <li><a href="/users/logout">Logout</a></li>
-            <% } else { %> 
-                <li><a href="/users/new">Sign Up</a></li>
-                <li><a href="/users/login">Login</a></li>
-            <% } %>
-        </ul>
-    </nav>
-    <h1>Express Auth Boilerplate for Project 2</h1>
-    <%- body %> 
+    <body>
+    <h1> Bryd Ticks</h1>
+
+
+    
+		<% if(client){ %>
+			<li><a href="/clients/profile">CLIENT PROFILE</a></li>
+			<li><a href="/clients/logout">CLIENT LOGOUT</a></li>
+		<% } else { %> 
+			<li><a href="/clients/new">CLIENT SIGN UP</a></li>
+			<li><a href="/clients/login">CLIENT LOGIN</a></li>
+		<% } %>
+	
+		  <%- body %>
+		
+	
 </body>
 </html>
