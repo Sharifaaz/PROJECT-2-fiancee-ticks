@@ -1,3 +1,5 @@
+
+
 const express = require('express')
 const db = require('../models')
 const router = express.Router()
@@ -17,6 +19,10 @@ router.post('/', async (req, res)=>{
         res.render('clients/login.ejs', {error: 'Looks like you already have an account! Try logging in :)'})
     } else {
         const hashedPassword = bcrypt.hashSync(req.body.password, 10)
+        // added two commands to save the client's name
+        const clientName = req.body.name
+        newUser.name = clientName 
+
         newUser.password = hashedPassword
         await newUser.save()
         const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET)
@@ -24,6 +30,11 @@ router.post('/', async (req, res)=>{
         res.cookie('clientId', encryptedUserIdString)
         res.redirect('/')
     }
+})
+
+// Routes to the Services Page
+router.get('/wedservices', (req,res)=>{
+    res.render('wedservices/types.ejs')
 })
 
 // Routes to the "About" Page

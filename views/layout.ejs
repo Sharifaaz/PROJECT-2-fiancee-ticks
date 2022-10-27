@@ -5,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>BRYD TICKS</title>
+	<link rel="stylesheet" href="/css/style.css">
 	
 </head>
     <body>
-    <h1> Bryd Ticks</h1>
-
-
-    
-		<% if(client){ %>
-			<li><a href="/clients/profile">CLIENT PROFILE</a></li>
-			<li><a href="/clients/logout">CLIENT LOGOUT</a></li>
-		<% } else { %> 
-			<li><a href="/clients/new">CLIENT SIGN UP</a></li>
-			<li><a href="/clients/login">CLIENT LOGIN</a></li>
-		<% } %>
-	
+		<ul>
+			<% if(client){ %>
+				<li><a href="/clients/profile">CLIENT PROFILE</a></li>
+				<li><a href="/clients/logout">CLIENT LOGOUT</a></li>
+				<li><a href="/wedservices/types">Services</a></li>
+				<li><a href="/makereservations">Reservations</a></li>
+				<li><a href="/makereservations">Profile</a></li>
+				<li><a href="/makereservations">Blog</a></li>
+				<li><a href="/makereservations">About</a></li>
+				<% } else { %> 
+					<li><a href="/clients/new">CLIENT SIGN UP</a></li>
+					<li><a href="/clients/login">CLIENT LOGIN</a></li>
+					<% } %>
+				
+				</ul>
+				<h1> Bryd Ticks</h1>
 		  <%- body %>
 		
 	

@@ -18,14 +18,11 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      price: {
+      phone: {
         type: Sequelize.INTEGER
       },
       location: {
         type: Sequelize.STRING
-      },
-      clientId: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -34,7 +31,11 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      img: {
+        type: Sequelize.STRING
       }
+
     });
   },
   async down(queryInterface, Sequelize) {
