@@ -30,19 +30,14 @@ router.post('/', async (req, res)=>{
     }
 })
 
-
-
-
-
-
-// Routes to the Services Page
-router.get('/types', (req,res)=>{
-    res.render('wedservices/types.ejs')
-})
+// // Routes to the Services Page
+// router.get('/types', (req,res)=>{
+//     res.render('wedservices/types.ejs')
+// })
 // Routes to the Profile Page
-router.get('/clients', (req,res)=>{
-    res.render('clients/profile.ejs')
-})
+// router.get('/clients', (req,res)=>{
+//     res.render('clients/profile.ejs')
+// })
 // Routes to the "About" Page
 router.get('/About', (req, res)=> {
     res.render('main/About.ejs')
