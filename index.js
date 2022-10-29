@@ -26,7 +26,7 @@ app.use(async (req, res, next)=>{
 
 // CONTROLLERS
 app.use('/clients', require('./controllers/clients'))
-
+app.use('/servicestypes', require('./controllers/servicestypes'))
 // ROUTES
 app.get('/', (req, res)=>{
     res.render('home')

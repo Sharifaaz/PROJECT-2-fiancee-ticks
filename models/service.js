@@ -11,15 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.service.hasMany(models.reservation)
-      
     }
   }
   service.init({
     name: DataTypes.STRING,
     category: DataTypes.STRING,
     description: DataTypes.TEXT,
-    phone: DataTypes.INTEGER,
+    phone: DataTypes.STRING,
     location: DataTypes.STRING,
     img: DataTypes.STRING
   }, {

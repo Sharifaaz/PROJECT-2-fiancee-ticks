@@ -1,5 +1,3 @@
-
-
 const express = require('express')
 const db = require('../models')
 const router = express.Router()
@@ -32,11 +30,19 @@ router.post('/', async (req, res)=>{
     }
 })
 
+
+
+
+
+
 // Routes to the Services Page
-router.get('/wedservices', (req,res)=>{
+router.get('/types', (req,res)=>{
     res.render('wedservices/types.ejs')
 })
-
+// Routes to the Profile Page
+router.get('/clients', (req,res)=>{
+    res.render('clients/profile.ejs')
+})
 // Routes to the "About" Page
 router.get('/About', (req, res)=> {
     res.render('main/About.ejs')
@@ -61,12 +67,12 @@ router.post('/login', async (req, res)=>{
     if(!user){
         console.log('user not found')
         res.render('clients/login', { error: "Invalid email/password" })
-    } else if(!bcrypt.compareSync(req.body.password,client.password)) {
+    } else if(!bcrypt.compareSync(req.body.password, user.password)) {
         console.log('password incorrect')
         res.render('clients/login', { error: "Invalid email/password" })
     } else {
         console.log('logging in the user!!!')
-        const encryptedUserId = cryptojs.AES.encrypt(client.id.toString(), process.env.SECRET)
+        const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('clientId', encryptedUserIdString)
         res.redirect('/')

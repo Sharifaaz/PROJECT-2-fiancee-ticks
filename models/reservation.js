@@ -13,13 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.reservation.belongsTo(models.service)
       models.reservation.belongsTo(models.client)
-      // models.reservation.hasMany(models.client) belongs to
     }
   }
   reservation.init({
-    reservationDate: DataTypes.INTEGER,
     serviceId: DataTypes.INTEGER,
-    clientId: DataTypes.INTEGER
+    clientId: DataTypes.INTEGER,
+    reservationDate: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'reservation',

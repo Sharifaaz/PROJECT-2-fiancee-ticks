@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.client.hasMany(models.reservation)
-      
     }
   }
   client.init({

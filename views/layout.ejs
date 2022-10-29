@@ -11,14 +11,20 @@
     <body>
 		<ul>
 			<% if(client){ %>
+				<li><a href="/">HOME</a></li>
+				<li><a href="/clients/types">BRYD TICKS LIST</a></li>
 				<li><a href="/clients/profile">CLIENT PROFILE</a></li>
 				<li><a href="/clients/logout">CLIENT LOGOUT</a></li>
-				<li><a href="/wedservices/types">Services</a></li>
-				<li><a href="/makereservations">Reservations</a></li>
-				<li><a href="/makereservations">Profile</a></li>
-				<li><a href="/makereservations">Blog</a></li>
-				<li><a href="/makereservations">About</a></li>
+				
 				<% } else { %> 
+					<li><a href="/">HOME</a></li>
+					<li><a href="/clients/About">ABOUT</a></li>
+					<li><a href="/clients/Blog">BLOG</a></li>
+				   
+					<li><a href="/clients/types">BRYD TICKS LIST</a></li>
+					
+					<li><a href="/clients/Contact">CONTACTS</a></li>
+
 					<li><a href="/clients/new">CLIENT SIGN UP</a></li>
 					<li><a href="/clients/login">CLIENT LOGIN</a></li>
 					<% } %>
