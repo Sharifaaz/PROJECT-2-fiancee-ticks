@@ -1,1 +1,24 @@
-<h1>Makeup artists LIST</h1>
+<h2>Makeup Artists </h2>
+
+<% makeup.forEach( s=> { %>
+
+
+    
+
+
+    <h2><%=s.name%></h2>
+    
+    <img src="<%=s.img%>" width="400" height="400"></img>
+    
+    <p><%=s.description%></p>
+    
+    <h3>Phone: <%=s.phone%></h3>
+    
+    <h3>Location:<%=s.location%></h3>
+
+
+
+
+<% }) %>
+
+<a href="/servicestypes/types">&larr; BACK BRYDS TICKS</a>

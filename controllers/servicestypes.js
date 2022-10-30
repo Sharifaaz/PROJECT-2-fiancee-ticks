@@ -1,5 +1,4 @@
 
-
 const express = require('express')
 const db = require('../models')
 const router = express.Router()
@@ -14,39 +13,80 @@ router.get('/types', (req, res)=>{
 })
 
 //  Routes to the flower shops
-router.get('/flowers', (req, res)=>{
-    res.render('wedservices/flowers.ejs')
+router.get('/flowers', async(req, res)=>{
+
+    let flower = await db.service.findOne({
+        where: { category : 'Flowers'}
+    })
+    
+        res.render('wedservices/flowers.ejs', {flower})
 })
+
+
 
 //  Routes to the gowns
 
-router.get('/gowns', (req, res)=>{
-    res.render('wedservices/gowns.ejs')
+router.get('/gowns', async(req, res)=>{
+    
+ 
+    let gown = await db.service.findAll({
+        where: { category : 'Bridal Gowns Designers'}
+    })
+    
+        res.render('wedservices/gowns.ejs', {gown})
 })
+
+
 //  Routes to the spas
 
-router.get('/spas', (req, res)=>{
-    res.render('wedservices/spas.ejs')
+router.get('/spas', async(req, res)=>{
+
+    let spa = await db.service.findAll({
+        where:{category : 'Hotels and Spas'}
+    })
+    
+    res.render('wedservices/spas.ejs', {spa})
 })
+
+
 //  Routes to the giveaways
-router.get('/give', (req, res)=>{
-    res.render('wedservices/give.ejs')
+router.get('/give', async(req, res)=>{
+
+    let give = await db.service.findAll({
+        where: { category : 'Wedding Giveaways'}
+    })
+
+    res.render('wedservices/give.ejs',{give})
 })
 
 //  routes to the makeup artists
-router.get('/makeup', (req, res)=>{
-    res.render('wedservices/makeup.ejs')
+router.get('/makeup', async(req, res)=>{
+
+    let makeup = await db.service.findAll({
+        where: { category : 'Makeup Artists'}
+    })
+
+    res.render('wedservices/makeup.ejs',{makeup})
 })
 
 //  routest to the hairstylist
 
-router.get('/hairstylist', (req, res)=>{
-    res.render('wedservices/hairstylist.ejs')
+router.get('/hairstylist', async(req, res)=>{
+
+    let hairstyle = await db.service.findAll({
+        where: { category : 'Hairstylist'}
+    })
+
+    res.render('wedservices/hairstylist.ejs',{hairstyle})
 })
 //  routes to the Jewels
 
-router.get('/jewls', (req, res)=>{
-    res.render('wedservices/jewls.ejs')
+router.get('/jewls', async(req, res)=>{
+
+    let jewllery = await db.service.findAll({
+        where: { category : 'Jewllries'}
+    })
+    res.render('wedservices/jewls.ejs',{jewllery})
 })
 
 module.exports = router
