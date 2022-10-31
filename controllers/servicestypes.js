@@ -114,7 +114,7 @@ router.post('/new', async (req,res) => {
 
 
 router.delete('/:reservationId', async (req,res) => {
-
+    console.log('test')
     //We need to delete pokemon with id pokeId
     //look at previous code/labs/hw/lessons
     //Search on google ---> delete item/data using sequelize
@@ -122,7 +122,7 @@ router.delete('/:reservationId', async (req,res) => {
         
         where: { id: req.params.reservationId }
     })
-    res.render('/clients/profile',{id: req.params.reservationId })
+    res.redirect('/clients/profile')
 }) 
 
 // post route for giveaways

@@ -11,7 +11,7 @@
     <h3><%= p.service.name %></h3>
     </a>
     
-    <form method="POST" action="/profile/<%=p.id%>?_method=DELETE">
+    <form method="POST" action="/servicestypes/<%= p.id %>?_method=DELETE">
         <button type="submit">DELETE</button>
     </form>
     
