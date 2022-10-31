@@ -1,2 +1,18 @@
-<h2>Hello <%= client.name%>, this is your reservation list:</h2>
 
+
+<h1>Hello <%= client.name%></h1>
+
+
+
+<h2>This is Your Reservation Lists:</h2>
+<% clientReservations.forEach(p => { %>
+
+    <a href="/profile/<%= p.id %>">
+    <h3><%= p.service.name %></h3>
+    </a>
+    
+    <form method="POST" action="/profile/<%=p.id%>?_method=DELETE">
+        <button type="submit">DELETE</button>
+    </form>
+    
+    <% })  %>

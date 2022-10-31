@@ -4,6 +4,7 @@ const router = express.Router()
 const cryptojs = require('crypto-js')
 require('dotenv').config()
 const bcrypt = require('bcrypt')
+const reservation = require('../models/reservation')
 
 router.get('/new', (req, res)=>{
     res.render('clients/new.ejs')
@@ -81,8 +82,21 @@ router.get('/logout', (req, res)=>{
     res.redirect('/')
 })
 
-router.get('/profile', (req, res)=>{
-    res.render('clients/profile.ejs')
+
+
+
+router.get('/profile', async(req, res)=>{
+
+    // let clientReservations = await res.locals.client.getReservations() 
+
+const clientReservations = await db.reservation.findAll({ include: db.service });
+    // let service = await db.service.findOne({
+    //     where: { id: 'Flowers'}
+    // })
+    
+// console.log("clientReservations:" + clientReservations)
+    res.render('clients/profile.ejs',{clientReservations}) 
 })
 
 module.exports = router
+

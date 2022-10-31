@@ -89,4 +89,61 @@ router.get('/jewls', async(req, res)=>{
     res.render('wedservices/jewls.ejs',{jewllery})
 })
 
+// post routes for all the routes of the services
+
+
+router.post('/new', async (req,res) => {
+    console.log('req.body ', req.body)
+    //Find client
+    
+    let client= res.locals.client
+    //Create 
+    let [newReservation, created] = await db.reservation.findOrCreate({
+        where: {
+          
+            clientId: client.id,
+           serviceId: req.body.serviceId
+            
+        }
+    })
+    
+    let reserve = await db.reservation.findByPk(newReservation.id)
+    // res.json(poke)
+    res.redirect('/clients/profile')
+})
+
+
+router.delete('/:reservationId', async (req,res) => {
+
+    //We need to delete pokemon with id pokeId
+    //look at previous code/labs/hw/lessons
+    //Search on google ---> delete item/data using sequelize
+    await db.reservation.destroy({
+        
+        where: { id: req.params.reservationId }
+    })
+    res.render('/clients/profile',{id: req.params.reservationId })
+}) 
+
+// post route for giveaways
+
+// router.post('/give', async (req,res) => {
+//     console.log('req.body ', req.body)
+//     //Find client
+    
+//     let client = res.locals.client
+//     //Create 
+//     let [newReservation, created] = await db.reservation.findOrCreate({
+//         where: {
+//             serviceId: req.body.serviceId,
+//             clientId: client.id
+//         }
+//     })
+    
+//     let reserve = await db.reservation.findByPk(newReservation.id)
+//     // res.json(poke)
+//     res.redirect('/wedservices/give')
+// })
+
+
 module.exports = router

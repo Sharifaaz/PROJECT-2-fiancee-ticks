@@ -4,9 +4,6 @@
 <% jewllery.forEach( s=> { %>
 
 
-    
-
-
     <h2><%=s.name%></h2>
     
     <img src="<%=s.img%>" width="400" height="400"></img>
@@ -16,9 +13,13 @@
     <h3>Phone: <%=s.phone%></h3>
     
     <h3>Location:<%=s.location%></h3>
-
-
-
+   
+    <form action="/servicestypes/new" method="POST">
+        <input type="hidden" name="serviceId" value="<%=s.id %>">
+        <button type="submit">RESERVE</button>
 
 <% }) %>
+
+
+
 <a href="/servicestypes/types">&larr; BACK BRYDS TICKS</a>

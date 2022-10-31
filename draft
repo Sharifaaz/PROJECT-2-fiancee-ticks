@@ -18,3 +18,55 @@
     <a href="/servicestypes" ><button>GOWNS DESIGNERS</button></a>
 
 </ul> -->
+
+
+// (Form) POST /pokemon/new ——> redirect to /pokemon/favorites
+
+router.post('/new', async (req,res) => {
+    console.log('req.body ', req.body)
+    //Find client
+    // let client = await db.client.findByPk(res.locals.user.id)
+    let client = res.locals.client
+    //Create pokemon
+    let [newReservation, created] = await db.reservation.findOrCreate({
+        where: {
+            serviceId: req.body.serviceId,
+            clientId: client.id
+        }
+    })
+    //Associate reservation to client
+    <!-- await client.addReservation(newReservation) -->
+    let reserve = await db.reservation.findByPk(newReservation.id)
+    // res.json(poke)
+    res.redirect('/clients/profile')
+})
+
+router.get('/jewls/:category', async(req, res)=>{
+
+    let jewllery = await db.service.findAll({
+        where: { category : req.params.category}
+    })
+    res.render('wedservices/jewls.ejs',{jewllery})
+})
+
+
+
+// GET /pokemon/favorites ——> favourites.ejs
+
+router.get('/favorites', async (req,res) => {
+    // Grab users' pokemon data
+    // let user = await db.user.findByPk(res.locals.user.id)
+        // let user = res.locals.user
+        //wait for DB to return data before moving on
+        let userPokemons = await res.locals.user.getPokemons() 
+        // console.log('user pokemons', userPokemons)
+        // res.json(userPokemons)
+        res.render('pokemon/favorites', {userPokemons})
+    })
+
+
+
+
+
+
+

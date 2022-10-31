@@ -1,10 +1,7 @@
-<h1> Hairstylists LIST</h1>
+<h1> Hairstylists</h1>
 
 
 <% hairstyle.forEach( s=> { %>
-
-
-    
 
 
     <h2><%=s.name%></h2>
@@ -17,9 +14,12 @@
     
     <h3>Location:<%=s.location%></h3>
 
-
-
-
+    <form action="/servicestypes/new" method="POST">
+        <input type="hidden" name="serviceId" value="<%=s.id %>">
+        <button type="submit">RESERVE</button>
+        
 <% }) %>
+
+
 
 <a href="/servicestypes/types">&larr; BACK BRYDS TICKS</a>
