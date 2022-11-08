@@ -7,12 +7,14 @@
 <h2>This is Your Reservation Lists:</h2>
 <% clientReservations.forEach(p => { %>
 
-    <a href="/profile/<%= p.id %>">
+    <a class="every-headings" href="/profile/<%= p.id %>">
     <h3><%= p.service.name %></h3>
     </a>
     
     <form method="POST" action="/servicestypes/<%= p.id %>?_method=DELETE">
-        <button type="submit">DELETE</button>
+        <button class="every-headings" type="submit">DELETE</button>
     </form>
     
     <% })  %>
+
+    <a href="/servicestypes/types">&larr; BACK BRYDS TICKS</a>

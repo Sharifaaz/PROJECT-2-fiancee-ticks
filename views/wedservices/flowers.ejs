@@ -1,8 +1,8 @@
 
-<h2> Flowers</h2>
+<h2 > Flowers</h2>
 
 
-<h2><%=flower.name%></h2>
+<h2 class="every-headings"><%=flower.name%></h2>
 
 <img src="<%=flower.img%>" width="400" height="400"></img>
 
@@ -14,10 +14,12 @@
 
 
 
-<a href="/servicestypes/new">&larr; BACK BRYDS TICKS</a>
+
 
 <form action="/servicestypes/new" method="POST">
     <input type="hidden" name="serviceId" value="<%=flower.id %>">
     <button type="submit">RESERVE</button>
     
     </form> 
+
+    <a href="/servicestypes/types">&larr; BACK BRYDS TICKS</a>
