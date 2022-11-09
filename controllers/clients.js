@@ -62,7 +62,8 @@ router.post('/login', async (req, res)=>{
     const user = await db.client.findOne({where: {email: req.body.email}})
     if(!user){
         console.log('user not found')
-        res.render('clients/login', { error: "Invalid email/password" })
+        // clients/login, { error: "Invalid email/password" }
+        res.render('main/404')
     } else if(!bcrypt.compareSync(req.body.password, user.password)) {
         console.log('password incorrect')
         res.render('clients/login', { error: "Invalid email/password" })

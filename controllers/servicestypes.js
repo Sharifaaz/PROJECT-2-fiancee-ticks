@@ -98,11 +98,12 @@ router.post('/new', async (req,res) => {
     
     let client= res.locals.client
     //Create 
+    console.log(req.body)
     let [newReservation, created] = await db.reservation.findOrCreate({
         where: {
           
             clientId: client.id,
-           serviceId: req.body.serviceId
+           serviceId: req.body.serviceId[0]
             
         }
     })
