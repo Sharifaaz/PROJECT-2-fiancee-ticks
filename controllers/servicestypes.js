@@ -103,7 +103,7 @@ router.post('/new', async (req,res) => {
         where: {
           
             clientId: client.id,
-           serviceId: req.body.serviceId[0]
+           serviceId: req.body.serviceId
             
         }
     })

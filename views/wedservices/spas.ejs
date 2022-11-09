@@ -1,7 +1,6 @@
 
 <h1> Spas and Hotels</h1>
 
-
 <% spa.forEach( s=> { %>
 
 
@@ -15,14 +14,11 @@
     
     <h3>Location:<%=s.location%></h3>
 
-    
     <form action="/servicestypes/new" method="POST">
-        <input type="hidden" name="serviceId" value="<%= s.id %>">
+        <input type="hidden" name="serviceId" value="<%=s.id %>">
         <button type="submit">RESERVE</button>
-<form/>
+    </form>
 <% }) %>
-
-
 
 
 
